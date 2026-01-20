@@ -8,35 +8,33 @@ function clamp(i, n) {
 function OutfitRow({ label, images, index, onPrev, onNext }) {
   return (
     <div className="row-card">
-
-      <div className="row-body">
-        <button className="arrow" onClick={onPrev} aria-label={`Previous ${label}`}>
-          ‹
-        </button>
-
-        <div className="viewport">
-          <div
-            className="track"
-            style={{
-              width: `${images.length * 100}%`,
-              transform: `translateX(${-index * (100 / images.length)}%)`,
-            }}
-          >
-            {images.map((src, i) => (
-              <div className="slide" key={src + i}>
-                <img src={src} alt={`${label} option ${i + 1}`} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <button className="arrow" onClick={onNext} aria-label={`Next ${label}`}>
-          ›
-        </button>
+      <button
+        className="arrow"
+        onClick={onPrev}
+        aria-label={`Previous ${label}`}
+      >
+        ‹
+      </button>
+      
+      <div className="square-box">
+        <img
+          src={images[index]}
+          alt={`${label} option ${index + 1}`}
+          draggable={false}
+        />
       </div>
+
+      <button
+        className="arrow"
+        onClick={onNext}
+        aria-label={`Next ${label}`}
+      >
+        ›
+      </button>
     </div>
   );
 }
+
 
 export default function OutfitMixer() {
   const outfit = useMemo(
@@ -62,7 +60,6 @@ export default function OutfitMixer() {
 
   const [topIdx, setTopIdx] = useState(0);
   const [bottomIdx, setBottomIdx] = useState(0);
-  const [shoeIdx, setShoeIdx] = useState(0);
 
   return (
     <div className="page">
@@ -82,13 +79,6 @@ export default function OutfitMixer() {
             index={bottomIdx}
             onPrev={() => setBottomIdx((i) => clamp(i - 1, outfit.Bottoms.length))}
             onNext={() => setBottomIdx((i) => clamp(i + 1, outfit.Bottoms.length))}
-          />
-          <OutfitRow
-            label="Shoes"
-            images={outfit.Shoes}
-            index={shoeIdx}
-            onPrev={() => setShoeIdx((i) => clamp(i - 1, outfit.Shoes.length))}
-            onNext={() => setShoeIdx((i) => clamp(i + 1, outfit.Shoes.length))}
           />
         </div>
       </div>

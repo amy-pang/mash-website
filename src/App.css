@@ -1,15 +1,19 @@
+html, body, #root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
 .page {
   min-height: 100vh;
-  background: transparent;
-  padding: 24px;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
 }
 
 .container {
-  max-width: 980px;
-  margin: 0 auto;
+  align-items: center;
 }
-
 
 .stack {
   display: flex;
@@ -20,10 +24,6 @@
 /* Row card */
 
 .row-card {
-  padding: 14px; /* check what this does */
-}
-
-.row-body {
   display: grid;
   grid-template-columns: 44px 1fr 44px;
   gap: 10px;
@@ -37,11 +37,10 @@
   height: 44px;
   font-size: 26px;
   cursor: pointer;
-  display: grid;
   place-items: center;
-  user-select: none;
   background: transparent;
 }
+
 
 /* Carousel */
 
@@ -58,14 +57,18 @@
   transition: transform 280ms ease;
 }
 
-.slide {
-  flex: 0 0 100%;
-  height: 100%;
+.square-box {
+  width: 140px;
+  height: 140px;          /* ← same as width */
+  border-radius: 14px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
 }
 
-.slide img {
+.square-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;     /* crops to square */
   display: block;
 }
