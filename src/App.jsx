@@ -8,13 +8,9 @@ function clamp(i, n) {
 function OutfitRow({ label, images, index, onPrev, onNext }) {
   return (
     <div className="row-card">
-      <div className="row-header">
-        <div className="row-label">{label}</div>
-        <div className="row-hint">Click arrows to change</div>
-      </div>
 
       <div className="row-body">
-        <button className="arrow-btn" onClick={onPrev} aria-label={`Previous ${label}`}>
+        <button className="arrow" onClick={onPrev} aria-label={`Previous ${label}`}>
           ‹
         </button>
 
@@ -34,18 +30,9 @@ function OutfitRow({ label, images, index, onPrev, onNext }) {
           </div>
         </div>
 
-        <button className="arrow-btn" onClick={onNext} aria-label={`Next ${label}`}>
+        <button className="arrow" onClick={onNext} aria-label={`Next ${label}`}>
           ›
         </button>
-      </div>
-
-      <div className="dots">
-        {images.map((_, i) => (
-          <div
-            key={i}
-            className={`dot ${i === index ? "active" : ""}`}
-          />
-        ))}
       </div>
     </div>
   );
@@ -80,8 +67,6 @@ export default function OutfitMixer() {
   return (
     <div className="page">
       <div className="container">
-        <h1 className="title">Outfit Mixer</h1>
-        <p className="subtitle">Mix & match by swapping each section.</p>
 
         <div className="stack">
           <OutfitRow
@@ -105,11 +90,6 @@ export default function OutfitMixer() {
             onPrev={() => setShoeIdx((i) => clamp(i - 1, outfit.Shoes.length))}
             onNext={() => setShoeIdx((i) => clamp(i + 1, outfit.Shoes.length))}
           />
-        </div>
-
-        <div className="summary">
-          <strong>Current pick:</strong>{" "}
-          Top {topIdx + 1} • Bottom {bottomIdx + 1} • Shoes {shoeIdx + 1}
         </div>
       </div>
     </div>
