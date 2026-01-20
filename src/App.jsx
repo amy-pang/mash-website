@@ -9,12 +9,10 @@ function OutfitRow({ label, images, descriptions, index, onPrev, onNext }) {
   return (
     <div className="row-card">
       <div className="row-content">
-        <div className="description">
-          <div className="desc-text">{descriptions?.[index] ?? ""}</div>
-        </div>
-        
+        <div className="description">{descriptions?.[index] ?? ""}</div>
+
         <div className="picker">
-          <button className="arrow" onClick={onPrev} aria-label={`Previous ${label}`}>
+          <button className="arrow" onClick={onPrev}>
             ‹
           </button>
 
@@ -22,7 +20,7 @@ function OutfitRow({ label, images, descriptions, index, onPrev, onNext }) {
             <img src={images[index]} alt={`${label} option ${index + 1}`} />
           </div>
 
-          <button className="arrow" onClick={onNext} aria-label={`Next ${label}`}>
+          <button className="arrow" onClick={onNext}>
             ›
           </button>
         </div>
