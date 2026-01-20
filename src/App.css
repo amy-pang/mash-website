@@ -20,10 +20,36 @@
 
 .row-card {
   display: grid;
-  grid-template-columns: 44px 1fr 44px;
-  gap: 10px;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
   align-items: center;
 }
+
+.row-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.picker {
+  display: grid;
+  grid-template-columns: 44px auto 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.description {
+  max-width: 120px;
+  text-align: left;
+}
+
+.desc-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+}
+
 
 /* Arrows */
 
