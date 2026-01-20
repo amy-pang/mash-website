@@ -48,12 +48,7 @@ export default function OutfitMixer() {
         "https://picsum.photos/id/1021/1200/700",
         "https://picsum.photos/id/1022/1200/700",
         "https://picsum.photos/id/1023/1200/700",
-      ],
-      Shoes: [
-        "https://picsum.photos/id/1031/1200/700",
-        "https://picsum.photos/id/1032/1200/700",
-        "https://picsum.photos/id/1033/1200/700",
-      ],
+      ]
     }),
     []
   );
